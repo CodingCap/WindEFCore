@@ -1,0 +1,6 @@
+1. Add appsetting.json
+	- add cnnectionString
+		"ConnectionStrings":
+		  {
+			"WindDbContext" : "Server=(localdb)\\MSSQLLocalDB;Database=EfCore;Trusted_Connection=True"
+		  }
