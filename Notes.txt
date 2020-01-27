@@ -1,6 +1,32 @@
 1. Add appsetting.json
+	- copy to output = true
 	- add cnnectionString
 		"ConnectionStrings":
 		  {
 			"WindDbContext" : "Server=(localdb)\\MSSQLLocalDB;Database=EfCore;Trusted_Connection=True"
 		  }
+2. Install dependecies (install-package)
+	- Microsoft.EntityFrameworkCore.SqlServer
+	- Microsoft.EntityFrameworkCore.Design
+	- Microsoft.EntityFrameworkCore.Tools
+	- Microsoft.Extensions.Configuration
+	- Microsoft.Extensions.Configuration.Json
+	- Microsoft.EntityFrameworkCore.Proxies
+	
+3. Install dotNet Core ef tool
+	- https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
+	- dotnet tool install --global dotnet-ef
+	
+4. Add DbContext class
+5. Add DbContextFactory
+	- https://gunnarpeipman.com/ef-core-console-application/
+
+5. Add initial migration
+	- dotnet ef migrations add InitalModel
+	OR
+	- add-migration NameOfMigration
+	
+6. Updata Database
+	- dotnet ef database update
+	OR
+	- update-database
