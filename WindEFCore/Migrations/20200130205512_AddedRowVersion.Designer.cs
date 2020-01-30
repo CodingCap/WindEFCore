@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WindEFCore;
 
 namespace WindEFCore.Migrations
 {
     [DbContext(typeof(WindDbContext))]
-    partial class WindDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200130205512_AddedRowVersion")]
+    partial class AddedRowVersion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

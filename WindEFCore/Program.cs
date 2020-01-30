@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -12,11 +13,24 @@ namespace WindEFCore
         static void Main(string[] args)
         {
             using var context = new WindDbContext();
-            
+            var company = context.Companies.First(c => c.CompanyId == 3);
+
+
+            var companyToUpdate = context.Companies.Find(3);
+            company.CompanyName = "test";
+
+            context.Entry(companyToUpdate).OriginalValues["RowVersion"] = context.Entry(company)
+                .OriginalValues["RowVersion"];
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException  e)
+            {
+                Console.WriteLine(e);
+            }
             
 
-            var res = context.Set<ClientOrdersCount>()
-                .FromSqlRaw("exec dbo.usp_clientCount");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace WindEFCore.Models
@@ -7,6 +8,7 @@ namespace WindEFCore.Models
     public class Company
     {
         public int CompanyId { get; set; }
+
         public string CompanyName { get; set; }
 
         //one to one relation

@@ -118,4 +118,28 @@ var originalOrders = modifiedEntities.Where(me => me.Entity is Order && me.State
 WriteLine($"Current value {order.Price}");
 WriteLine($"Original value {originalOrders.First().Price}");
 
+
+
+
+
+
+//=======================================================================================
+//concurency checks
+ var company = context.Companies.First(c => c.CompanyId == 3);
+
+
+            var companyToUpdate = context.Companies.Find(3);
+            company.CompanyName = "test";
+
+            context.Entry(companyToUpdate).OriginalValues["RowVersion"] = context.Entry(company)
+                .OriginalValues["RowVersion"];
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException  e)
+            {
+                Console.WriteLine(e);
+            }
+
 */

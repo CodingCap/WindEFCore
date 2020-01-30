@@ -24,6 +24,10 @@
     <Compile Remove="Migrations\20200129211934_AddSps.Designer.cs" />
     <Compile Remove="Migrations\20200129212051_AddedSps.cs" />
     <Compile Remove="Migrations\20200129212051_AddedSps.Designer.cs" />
+    <Compile Remove="Migrations\20200130192601_test.cs" />
+    <Compile Remove="Migrations\20200130192601_test.Designer.cs" />
+    <Compile Remove="Migrations\20200130201141_AddedConcurencyToken.cs" />
+    <Compile Remove="Migrations\20200130201141_AddedConcurencyToken.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>

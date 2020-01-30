@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Linq;
 using WindEFCore.EntityConfiguration;
 using WindEFCore.Models;
 
@@ -33,6 +34,12 @@ namespace WindEFCore
             modelBuilder.Entity<Order>().Property<DateTime>("LastUpdated")
                 .HasDefaultValue(new DateTime(1900, 1, 1));
 
+            modelBuilder.Entity<Company>().Property<DateTime>("LastUpdated")
+                .HasDefaultValue(new DateTime(1900, 1, 1));
+
+            modelBuilder.Entity<Company>().Property<byte[]>("RowVersion")
+                .IsRowVersion();
+
 
             modelBuilder.Entity<ClientOrdersCount>(co =>
             {
@@ -41,6 +48,7 @@ namespace WindEFCore
                 co.Property(p => p.ClientName).HasColumnName("CompanyName");
                 co.Property(p => p.Count).HasColumnName("Cnt");
             });
+
 
             base.OnModelCreating(modelBuilder);
         }
@@ -58,7 +66,7 @@ namespace WindEFCore
 
             foreach (var entry in ChangeTracker.Entries())
             {
-                if(entry.State == EntityState.Added || entry.State == EntityState.Modified)
+                if((entry.State == EntityState.Added || entry.State == EntityState.Modified) && entry.Metadata.FindProperty("LastUpdated") != null)
                 {
                     entry.Property("LastUpdated").CurrentValue = DateTime.UtcNow;
                 }
