@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WindEFCore;
 
 namespace WindEFCore.Migrations
 {
     [DbContext(typeof(WindDbContext))]
-    partial class WindDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200128224354_ShadowProp")]
+    partial class ShadowProp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +107,7 @@ namespace WindEFCore.Migrations
                     b.Property<DateTime>("LastUpdated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(1900, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValue(new DateTime(2020, 1, 29, 0, 43, 54, 125, DateTimeKind.Local).AddTicks(7527));
 
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(9,2)");

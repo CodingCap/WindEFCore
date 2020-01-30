@@ -8,6 +8,22 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200127190700_test.cs" />
     <Compile Remove="Migrations\20200127190700_test.Designer.cs" />
+    <Compile Remove="Migrations\20200128224104_ShadowProp.cs" />
+    <Compile Remove="Migrations\20200128224104_ShadowProp.Designer.cs" />
+    <Compile Remove="Migrations\20200129203726_AddedSPS.cs" />
+    <Compile Remove="Migrations\20200129203726_AddedSPS.Designer.cs" />
+    <Compile Remove="Migrations\20200129210330_AddedSPS.cs" />
+    <Compile Remove="Migrations\20200129210330_AddedSPS.Designer.cs" />
+    <Compile Remove="Migrations\20200129210459_AddedSPS.cs" />
+    <Compile Remove="Migrations\20200129210459_AddedSPS.Designer.cs" />
+    <Compile Remove="Migrations\20200129211653_AddedSPS.cs" />
+    <Compile Remove="Migrations\20200129211653_AddedSPS.Designer.cs" />
+    <Compile Remove="Migrations\20200129211805_AddedSPS.cs" />
+    <Compile Remove="Migrations\20200129211805_AddedSPS.Designer.cs" />
+    <Compile Remove="Migrations\20200129211934_AddSps.cs" />
+    <Compile Remove="Migrations\20200129211934_AddSps.Designer.cs" />
+    <Compile Remove="Migrations\20200129212051_AddedSps.cs" />
+    <Compile Remove="Migrations\20200129212051_AddedSps.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
