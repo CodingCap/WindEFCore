@@ -2,8 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
+using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using WindEFCore.EntityConfiguration;
 using WindEFCore.Models;
+using Expression = System.Linq.Expressions.Expression;
 
 namespace WindEFCore
 {
@@ -44,9 +47,9 @@ namespace WindEFCore
             modelBuilder.Entity<ClientOrdersCount>(co =>
             {
                 co.HasNoKey();
-                co.ToView("dbo.niet");
-                co.Property(p => p.ClientName).HasColumnName("CompanyName");
-                co.Property(p => p.Count).HasColumnName("Cnt");
+                co.ToView(null);
+                //co.Property(p => p.ClientName).HasColumnName("CompanyName");
+                //co.Property(p => p.Count).HasColumnName("Cnt");
             });
 
 
@@ -56,7 +59,7 @@ namespace WindEFCore
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                //.UseLazyLoadingProxies()
+                .UseLazyLoadingProxies()
                 .UseSqlServer(GetConnectionString());
         }
 

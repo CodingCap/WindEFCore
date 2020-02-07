@@ -15,8 +15,8 @@ namespace WindEFCore.Migrations
 	                                    SET NOCOUNT ON;
 	                                    
 	                                    SELECT 
-		                                    c.CompanyName, 
-		                                    COUNT(o.OrderId) AS Cnt
+		                                    c.CompanyName as ClientName, 
+		                                    COUNT(o.OrderId) AS [Count]
 	                                    FROM Companies AS c
 		                                    JOIN Orders AS o ON o.ClientId = c.CompanyId
 	                                    GROUP BY c.CompanyName

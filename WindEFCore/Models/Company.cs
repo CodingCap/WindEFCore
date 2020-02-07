@@ -20,9 +20,9 @@ namespace WindEFCore.Models
         //one to many relation
         //poate fi exclus daca nu se doreste ca fiecare firma sa stie de comenzi
         //new HashSet<Order>(); pt a evita duplicatele
-        public virtual ICollection<Order> Orders { get; set; }// = new HashSet<Order>();
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
 
         //one to many relation
-        public virtual ICollection<Trip> Trips { get; set; }// = new HashSet<Trip>();
+        public virtual ICollection<Trip> Trips { get; set; } = new HashSet<Trip>();
     }
 }

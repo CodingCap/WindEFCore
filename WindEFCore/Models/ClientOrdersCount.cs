@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WindEFCore.Models
 {
-    class ClientOrdersCount
+    public class ClientOrdersCount
     {
         public string ClientName { get; set; }
         public int Count { get; set; }
